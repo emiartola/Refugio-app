@@ -1,0 +1,40 @@
+<div class="col-md-4 offset-md-2">
+    <div class="card">
+        <div class="card-body">
+            <form>
+                <div class="form mb-3">
+                    <input type="text" name="name" placeholder="Name" [(ngModel)]="dog.name" class="form-control"
+                        autofocus>
+                </div>
+                <div class="form mb-3">
+                    <input type="text" name="age" placeholder="Edad" [(ngModel)]="dog.age" class="form-control"
+                        autofocus>
+                </div>
+                <div class="form mb-3">
+                    <textarea name="description" placeholder="Descripción" rows="2" [(ngModel)]="dog.description"
+                        class="form-control"> </textarea>
+                </div>
+                <div class="form mb-3">
+                    <input type="text" name="location" placeholder="Ubicación" [(ngModel)]="dog.location"
+                        class="form-control" autofocus>
+                </div>
+                <div class="form mb-3">
+                    <input type="url" name="image" placeholder="Imagen" [(ngModel)]="dog.image" class="form-control">
+                </div>
+                <button class="btn btn-success btn-lg w-100" (click)=" edit ? updateDog() : saveNewDog()">
+                    Guardar
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4">
+    <div class="card card-body text-center">
+        <img [src]="dog.image == '' ? '/assets/noimage.png' : dog.image" class="card card-img-top">
+        <h3>{{dog.name}}</h3>
+        <p>{{dog.age}} </p>
+        <p>{{dog.description}} </p>
+        <p>{{dog.created_at | date: 'dd-MM-yyyy'}} </p>
+    </div>
+</div>
