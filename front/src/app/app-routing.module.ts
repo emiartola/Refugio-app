@@ -6,7 +6,7 @@ import { DogListComponent } from './components/dog-list/dog-list.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dogs',
+    redirectTo: '/dogs',
     pathMatch: 'full'
   },
   {

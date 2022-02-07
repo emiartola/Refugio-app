@@ -1,20 +1,22 @@
 
-<div class="row row-cols-1 row-cols-md-3 " >
     <div class="col-md-4 " *ngFor="let dog of dogs">
         <div class="card text-center">
-            <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center ">
-                <h3>{{dog.name}}</h3>
+            <div class="card-header bg-primary d-flex justify-content-between align-items-center">
+                <h3 class="text-white">{{dog.name}}</h3>
                 <button class="btn btn-danger" (click)="deleteDog(dog.id)"> X </button>
             </div>
-            <img [src]="dog.image" class="card-img-top" style="min-width: 20rem;">
+            <img [src]="dog.image == '' ? '/assets/noimage.png' : dog.image" class="card-img-top" style="min-width: 20rem;">
             <div class="card-body ">
-                <p>{{dog.age}} años</p>
-                <p>"{{dog.description}}"</p>
-                <p>{{dog.location}}</p>
-                <a [routerLink]="['/dogs/update', dog.id]" class="btn btn-info w-100">
-                    EDITAR
-                </a>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{dog.age}} años</li>
+                    <li class="list-group-item">"{{dog.description}}"</li>
+                    <li class="list-group-item">{{dog.location}}</li>
+                    <li class="list-group-item"><a [routerLink]="['/dogs/update', dog.id]"
+                            class="btn btn-primary w-100">
+                            EDITAR
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
-</div>  

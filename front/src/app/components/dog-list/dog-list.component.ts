@@ -20,22 +20,24 @@ export class DogListComponent implements OnInit {
   }
 
   getDogs() {
-    this.dogsService.getDogs().subscribe(
-      res => {
-        this.dogs = res;
-      },
-      err => console.log(err)
+    this.dogsService.getDogs()
+    .subscribe(
+      (res) => {
+          this.dogs = res;
+        },
+      err => console.error(err)
     );
   }
 
   deleteDog(id: string) {
     this.dogsService.deleteDog(id).subscribe(
       res => {
-        this.dogs = res;
+        console.log(res);
+        this.getDogs();
       },
-      err => console.log(err)
+      err => console.error(err)
     );
-  };
+  }
 
 
 }

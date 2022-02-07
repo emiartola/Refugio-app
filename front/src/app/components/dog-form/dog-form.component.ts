@@ -54,7 +54,15 @@ export class DogFormComponent implements OnInit {
   }
 
   updateDog(){
+    delete this.dog.created_at;
     
+    this.dogService.updateDog(this.dog.id, this.dog).subscribe(
+      res => {
+        console.log(res);
+        this.router.navigate(['/dogs']);
+      },
+        err => console.error(err)
+      );    
   }
 
 }

@@ -29,7 +29,7 @@ export class DogsService {
     return this.http.delete(`${this.apiUrl}/dogs/${id}`);
   }
 
-  updateDog(id: string, updatedDog: Dog){
+  updateDog(id: number | undefined, updatedDog: Dog): Observable<Dog> {
     return this.http.put(`${this.apiUrl}/dogs/${id}`, updatedDog);
   }
   
